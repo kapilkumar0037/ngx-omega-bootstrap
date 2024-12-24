@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ngx-omega-bootstrap",
       "sourceRoot": "projects/ngx-omega-bootstrap/src",
-      "prefix": "omega",
+      "prefix": "ngo",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"

@@ -1,5 +1,5 @@
 {
-  "name": "@ngx-omega/omega-bootstrap",
+  "name": "@ngx-omega/angular-bootstrap",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
