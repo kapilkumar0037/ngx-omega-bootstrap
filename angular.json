@@ -36,7 +36,8 @@
             "polyfills": [
               "zone.js",
               "zone.js/testing"
-            ]
+            ],
+            "karmaConfig": "projects/ngx-omega-bootstrap/karma.conf.js"
           }
         },
         "lint": {

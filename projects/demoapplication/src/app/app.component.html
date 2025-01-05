@@ -1,3 +1,87 @@
 <input name="password" type="text" id="password" [(ngModel)]="password">
-<ngo-password-strength-meter [password]="password" (pwdStrengthOutput)="pwdStrengthOutput($event)"></ngo-password-strength-meter>
-{{password}}
+<br>
+<ngo-password-strength-meter [password]="password"
+    (pwdStrengthOutput)="pwdStrengthOutput($event)"></ngo-password-strength-meter>
+
+<br><br>
+<ngo-username [(ngModel)]="username" [validators]="validators"></ngo-username>
+{{username}}
+<br>
+
+<form #emailform="ngForm" [ngClass]="{'was-validated': emailform.valid}">
+    <label for="floatingInput" class="form-label">Email address</label>
+    <ngo-custom-input name="customInput" controlId="floatingInput" [(ngModel)]="email" [validators]="emailValidators"
+        [type]="'email'" [placeholder]="'Email'"></ngo-custom-input>
+
+    {{emailform.invalid}}
+</form>
+
+{{email}}
+<br>
+
+<div class="input-group flex-nowrap">
+    <span class="input-group-text" id="addon-wrapping">&#64;</span>
+    <ngo-custom-input [(ngModel)]="phone" [validators]="phoneValidators" [type]="'number'"></ngo-custom-input>
+</div>
+<div class="form-floating mb-3">
+    <ngo-custom-input controlId="phonenumber" [(ngModel)]="phone" [validators]="phoneValidators" [type]="'number'">
+        <label for="phonenumber">Email address</label>
+    </ngo-custom-input>
+
+
+</div>
+
+{{phone}}
+<br>
+<div class="form-check">
+    <ngo-custom-checkbox name="check" [(ngModel)]="isChecked" [validators]="checkboxValidators">
+        <label class="form-check-label" for="flexCheckDefault">
+            Accept terms and conditions
+        </label>
+    </ngo-custom-checkbox>
+</div>
+<div class="form-check">
+    <ngo-custom-checkbox name="check" [(ngModel)]="isChecked" [validators]="checkboxValidators"
+        [styleClass]="'btn-check'">
+        <label class="btn btn-primary" for="flexCheckDefault">
+            Accept terms and conditions
+        </label>
+    </ngo-custom-checkbox>
+</div>
+<div class="form-check form-switch">
+    <ngo-custom-checkbox controlId="flexCheckDefault" name="check" [(ngModel)]="isChecked"
+        [validators]="checkboxValidators">
+        <label class="form-check-label" for="flexCheckDefault">
+            Accept terms and conditions
+        </label>
+    </ngo-custom-checkbox>
+</div>
+{{isChecked}}
+<br><br>
+<ngo-custom-select [(ngModel)]="selected" [validators]="selectValidators">
+    <option value="">Open this select menu</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+</ngo-custom-select>
+{{selected}}
+
+<br>
+<br>
+@for(option of radioOption; track option){
+<div class="form-check form-check-inline">
+    <ngo-custom-radio name="customRadio" id="{{'option'+option.label}}" [option]="option.value"
+        [(ngModel)]="selectedRadio" [validators]="selectValidators">
+        <label class="form-check-label" for="{{'option'+option.label}}">
+            {{option.label}}
+        </label>
+    </ngo-custom-radio>
+</div>
+}
+
+{{selectedRadio}}
+
+<br>
+<ngo-custom-range [min]="1" [max]="90" [step]="1" [(ngModel)]="selectedRangeValue"
+    [validators]="rangeValidators"></ngo-custom-range>
+{{selectedRangeValue}}

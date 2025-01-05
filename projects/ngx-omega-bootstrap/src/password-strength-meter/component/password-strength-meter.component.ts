@@ -1,4 +1,4 @@
-import { Component, computed, effect, input, output, Signal } from '@angular/core';
+import { Component, effect, input, output, Signal } from '@angular/core';
 import { IPSMConfig, IPwdStrengthOutput, IStrengthProperties } from '../models';
 
 @Component({
@@ -21,11 +21,15 @@ export class PasswordStrengthMeterComponent {
   }
 
   checkStrength() {
+    const isLongEnough = this.password().length >= (this.config().pwdMinLength ?? 8);    
     const hasLower = /[a-z]/.test(this.password());
     const hasUpper = /[A-Z]/.test(this.password());
     const hasNumber = /[0-9]/.test(this.password());
-    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(this.password());
-    const isLongEnough = this.password().length >= (this.config().pwdMinLength ?? 8);
+    let hasSpecial = false;
+    if(isLongEnough){
+      hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(this.password());
+    }
+
 
     this.strength = [
       hasLower,
@@ -54,7 +58,7 @@ export class PasswordStrengthMeterComponent {
         break;
       case 3:
       case 4:
-        this.strengthProperties = { width: this.strength * 15 + "%", backgroundClass: "warning", label: 'Medium' };
+        this.strengthProperties = { width: this.strength * 15 + "%", backgroundClass: "warning", label: 'Good' };
         break;
       case 5:
         this.strengthProperties = { width: "100%", backgroundClass: "success", label: 'Strong' };
