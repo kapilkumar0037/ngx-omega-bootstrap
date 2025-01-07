@@ -14,6 +14,8 @@
         [type]="'email'" [placeholder]="'Email'"></ngo-custom-input>
 
     {{emailform.invalid}}
+    <ngo-custom-datepicker [(ngModel)]="selectedDate"></ngo-custom-datepicker>
+    {{selectedDate}}
 </form>
 
 {{email}}

@@ -9,6 +9,7 @@ import { IOptions } from '../../../ngx-omega-bootstrap/src/utils/src/models';
 import { CustomRadioComponent } from '../../../ngx-omega-bootstrap/src/custom-radio-group';
 import { CustomRangeComponent } from '../../../ngx-omega-bootstrap/src/custom-range';
 import { NgClass } from '@angular/common';
+import { CustomDatepickerComponent } from '../../../ngx-omega-bootstrap/src/custom-datepicker';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ import { NgClass } from '@angular/common';
     CustomInputComponent,
     CustomSelectComponent,
     CustomRadioComponent,
-    CustomRangeComponent
+    CustomRangeComponent,
+    CustomDatepickerComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -37,6 +39,7 @@ export class AppComponent {
   radioOption: IOptions[] = [{ value: '1', label: 'Male' }, { value: '2', label: 'Female' }];
   selectedRadio = "1";
   selectedRangeValue = 3;
+  selectedDate = '21-12-2018';
   validators = [
     { validator: Validators.required, message: 'Username is required.' },
     { validator: Validators.minLength(5), message: 'Username must be at least 5 characters long.' },
